@@ -1,0 +1,114 @@
+function setup() {
+createCanvas(600, 600);
+angleMode(DEGREES);
+}
+
+function draw() {
+background('#488CA3');
+strokeWeight(10);
+strokeCap(ROUND);
+strokeJoin(ROUND);
+
+//Arm Back
+fill('#355BA6');
+arc(420,500,200,250,350,250, PIE);
+
+//Body
+fill('#355BA6');
+arc(270,600,400,600,180,0);
+noFill();
+
+fill(50);
+rect(250,310,128,300);
+line(250,310,250,600);
+line(380,310,380,600);
+
+//Arm Front
+fill('#355BA6');
+arc(230,500,200,250,350,250, PIE);
+
+//Head
+let FaceX=300;
+let FaceY=300;
+
+fill('#F5CE93');
+ellipse(345,240,250,260);
+
+stroke(0);
+strokeWeight(8);
+
+//DS
+fill('#F8F0E3');
+rect(335,350,176,180,10);
+line(335,437,510,437);
+strokeWeight(3.5);
+rect(412,380,25,15,3);
+rect(412,400,25,15,3);
+
+//Hands
+strokeWeight(8);
+fill('#F5CE93');
+ellipse(350,500,100,100);
+ellipse(500,500,100,100);
+
+//Glasses
+rect(FaceX,FaceY-60,70,49)
+rect(FaceX+110,FaceY-60,70,49)
+line(FaceX+75,FaceY-30,FaceX+110,FaceY-30);
+line(FaceX-30,FaceY-30,FaceX,FaceY-30);
+noFill();
+
+//Closed Eyes
+rect(FaceX+15,FaceY-40,40,5)
+rect(FaceX+125,FaceY-40,40,5)
+
+//Open Eyes
+// rect(FaceX+12,FaceY-45,44,5)
+// rect(FaceX+122,FaceY-45,44,5)
+// rect(FaceX+35,FaceY-40,10,10)
+// rect(FaceX+145,FaceY-40,10,10)
+
+//Mouth
+arc(FaceX+75,FaceY+5,145,50,52,130)
+
+//Hair Back
+fill(50);
+arc(320,190,300,230,150,0);
+let hpc='#F8F0E3';
+
+//Headphone Piece
+stroke(hpc);
+strokeWeight(15);
+noFill();
+arc(330,200,250,300,180,0);
+
+//Hair Bangs
+fill(50);
+stroke(0);
+strokeWeight(8);
+arc(437,160,100,100,250,120);
+arc(390,150,100,120,0,110);
+arc(350,150,100,120,0,110);
+arc(300,150,100,120,0,110,);
+arc(240,220,100,130,320,100);
+
+noFill();
+
+//Headphones
+fill(hpc);
+stroke(hpc);
+arc(235,238,150,120,90,270,CHORD);
+
+//Music Note
+stroke(0);
+fill(0);
+ellipse(530,200,40,30);
+line(550,200,540,145);
+line(540,145,560,155);
+
+
+fill(50);
+stroke(0);
+
+
+}
