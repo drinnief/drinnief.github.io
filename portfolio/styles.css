@@ -45,6 +45,7 @@ p {
 /*Drop Down==========================================================*/
 	.dropbtn{
 		color: #3c3c3c;
+		background-color:pink;
 		padding: 16px;
 		font-size: 16px;
 		border:none;
@@ -56,11 +57,11 @@ p {
 		display:inline-block;
 	}
 	
-	.dropdown-cotent{
+	.dropdown-content{
 	  display: none;
 	  position: absolute;
 	  right: 0;
-	  background-color: #3c3c3c50;
+	  background-color: #3c3c3c70;
 	  min-width: 160px;
 	  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 	  z-index: 1;
@@ -72,17 +73,14 @@ p {
 	  display: block;
 	}
 
-	.dropdown-content a:hover {background-color: #f1f1f1;}
+	.dropdown-content a:hover {background-color: #fff9e2;}
 
-	.dropdown:hover .dropdown-content {
-	  display: block;
-	}
+	.dropdown:hover .dropdown-content {display: block;}
 
-	.dropdown:hover .dropbtn {
-	  color: pink;
-	}
+	.dropdown:hover .dropbtn {color: DeepPink;}
 
 /*Navigation Links==================================================*/
+		
 	.navbar-custom{
 		background-color: #3c3c3c;
 		a:link {
@@ -103,8 +101,12 @@ p {
 		a:active {
 		  color: pink;
 		  background-color: transparent;
-		  text-decoration: none;
+		  text-decoration: none;	  
 		}
+	}
+	
+	.topnav-right {
+		float: right;
 	}
 		
 	#footer{

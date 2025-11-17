@@ -8,8 +8,6 @@ var ballx3 = 300;
 var bally3 = 300;
 var ballx4 = 300;
 var bally4 = 300;
-var ballx5 = 300;
-var bally5 = 300;
 
 var ballSize = 40;
 var score = 0;
@@ -17,11 +15,11 @@ var gameState = "L1";
 var cursorImg;
 
 function preload(){
-  cursorImg = loadImage('drinnief.github.io/gifs/drPumpkin.gif');
-  pumpkinSquad = loadImage('drinnief.github.io/gifs/drPumpkinSquad.gif');
-  gcandy = loadImage('drinnief.github.io/gifs/greenCandy.gif');
-  bcandy = loadImage('drinnief.github.io/gifs/blueCandy.gif');
-  spider = loadImage('drinnief.github.io/gifs/spider.gif');
+  cursorImg = loadImage('https://drinnief.github.io/gifs/drPumpkin.gif');
+  pumpkinSquad = loadImage('https://drinnief.github.io/gifs/drPumpkinSquad.gif');
+  gcandy = loadImage('https://drinnief.github.io/gifs/greenCandy.gif');
+  bcandy = loadImage('https://drinnief.github.io/gifs/blueCandy.gif');
+  spider = loadImage('https://drinnief.github.io/gifs/spider.gif');
 }
 
 
@@ -33,6 +31,7 @@ textAlign(CENTER);
 textSize(20);
 
 rectLocation = createVector(width/2,height/2);
+rectLocation2 = createVector(width/2,height/2);
 
 
 
@@ -169,13 +168,6 @@ function levelTwo(){
     redraw();
   }
 
-   var distToBall = dist(ballx5,bally5,mouseX,mouseY); //Small Spider 2
-  if (distToBall < ballSize/2){    
-    ballx5 = x;
-    bally5 = y;
-    score = score -2;
-  }
-  
   if(score <= -50){
     gameState = "GameOver";
   }
@@ -187,7 +179,6 @@ function levelTwo(){
   // Sprites
   image(spider, ballx3-80, bally3-85, ballSize/0.25, ballSize/0.25);
   image(spider, rectLocation.x, rectLocation.y, ballSize, ballSize);  
-  image(spider, ballx5-20, bally5-20, ballSize, ballSize);
   image(gcandy, ballx-40, bally-40, ballSize/.5, ballSize/.5);
   image(bcandy, ballx2-20, bally2-20, ballSize, ballSize);
   
@@ -199,7 +190,7 @@ function levelThree(){
   image(cursorImg, mouseX-30, mouseY-30, width/10, height/10);
 
     //Following Spider Movement - Code by Ian Hogers from stackoverflow.com from the post "Making an object move toward the cursor - JavaScript - p5.js"
-    var target = createVector(mouseX,mouseY);
+    var target = createVector(mouseX,mouseY); // Small Spider Movement
     var distance = target.dist(rectLocation);
     var velocity = p5.Vector.sub(target,rectLocation);
     velocity.setMag(4.75);
@@ -208,8 +199,20 @@ function levelThree(){
     target.sub(rectLocation);
     target.normalize();
     target.mult(mappedDistance);  
-    rectLocation.add(target);  
-  
+    rectLocation.add(target);
+    
+    //Big Spider Movement
+    var target2 = createVector(mouseX,mouseY);
+    var distance2 = target2.dist(rectLocation);
+    var velocity2 = p5.Vector.sub(target2,rectLocation2);
+    velocity2.setMag(1);
+    rectLocation2.add(velocity2);
+    var mappedDistance = map(distance2, 100, 0, 1.5, 1);
+    target2.sub(rectLocation);
+    target2.normalize();
+    target2.mult(mappedDistance);  
+    rectLocation2.add(target);    
+    
   //Score Stuff:
   var distToBall = dist(ballx,bally,mouseX,mouseY); //Blue Candy
   if (distToBall < ballSize/2){
@@ -223,11 +226,12 @@ function levelThree(){
     bally2 = random(height);
     score = score +4;
   }
-  var distToBall = dist(ballx3,bally3,mouseX,mouseY); //Big Spider
-  if (distToBall < ballSize){    
+  var distToBall = dist(rectLocation2.x,rectLocation2.y,mouseX,mouseY); //Big Spider
+  if (distToBall < ballSize/0.5){    
     ballx3 = random(width);
     bally3 = random(height);
-    score = score -8;
+    score = score -1.5;
+    redraw();
   }
   var distToBall = dist(rectLocation.x,rectLocation.y,mouseX,mouseY); //Following Small Spider
   if (distToBall < ballSize/2){      
@@ -237,12 +241,6 @@ function levelThree(){
     redraw();
   }
 
-   var distToBall = dist(ballx5,bally5,mouseX,mouseY); //Big Spider 2
-  if (distToBall < ballSize/2){    
-    ballx5 = x;
-    bally5 = y;
-    score = score -8;
-  }
   
   
   if(score <= -50){
@@ -254,9 +252,8 @@ function levelThree(){
   }
   
   // Sprites
-  image(spider, ballx3-80, bally3-85, ballSize/0.25, ballSize/0.25);
+  image(spider, rectLocation2.x-80, rectLocation2.y-80, ballSize/0.25, ballSize/0.25);
   image(spider, rectLocation.x, rectLocation.y, ballSize, ballSize);  
-  image(spider, ballx5-80, bally5-80, ballSize/0.25, ballSize/0.25);
   image(gcandy, ballx-40, bally-40, ballSize/.5, ballSize/.5);
   image(bcandy, ballx2-20, bally2-20, ballSize, ballSize);
   
@@ -274,7 +271,6 @@ function levelThree(){
    text("Credits: Dancing pumpkin animations originally from Deltarune.", width/2, height/2+25)
    text("Upscaled recreation by Tumblr user lunarlicorice", width/2, height/2+40)
    text("Following spider movement code by Ian Hogers from stackoverflow.com", width/2, height/2+55)
-   text("Hit the spacebar to play again!", width/2, height/2+70)
  }   
 
 //OR 
