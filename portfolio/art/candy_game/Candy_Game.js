@@ -17,11 +17,11 @@ var gameState = "L1";
 var cursorImg;
 
 function preload(){
-  cursorImg = loadImage('drPumpkin.gif');
-  pumpkinSquad = loadImage('drPumpkinSquad.gif');
-  gcandy = loadImage('greenCandy.gif');
-  bcandy = loadImage('blueCandy.gif');
-  spider = loadImage('spider.gif');
+  cursorImg = loadImage('drinnief.github.io/gifs/drPumpkin.gif');
+  pumpkinSquad = loadImage('drinnief.github.io/gifs/drPumpkinSquad.gif');
+  gcandy = loadImage('drinnief.github.io/gifs/greenCandy.gif');
+  bcandy = loadImage('drinnief.github.io/gifs/blueCandy.gif');
+  spider = loadImage('drinnief.github.io/gifs/spider.gif');
 }
 
 
