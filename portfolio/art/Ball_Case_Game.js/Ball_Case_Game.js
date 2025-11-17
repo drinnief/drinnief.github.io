@@ -282,17 +282,5 @@ function GameOver(){
    textSize(20)
    text
    text("You lost :(", width/2, height/2);
-   //text("Hit the spacebar to restart!", width/2, height/2+50); 
- 
-// function keyPressed(){
-//   if (key === 'SPACE'|| keyCode === 32){
-//    gameReset();
-//   }
-// }
- 
-// function gameReset(){
-//   score = 0;
-//   gameState = "L1";
-// }  
 }
  
