@@ -1,6 +1,8 @@
 body {
   background-color: #fff9e5;
   text-align: center;
+  margin:0;
+  padding:0;
 }
 
 h1 {
@@ -26,6 +28,10 @@ article {
         margin-right: auto;
     }
 
+header{
+	background-color: #3c3c3c;	
+	}
+
 /*Gallery*/
 	div.gallery {
 		display: flex;
@@ -50,17 +56,18 @@ article {
 
 /*Drop Down==========================================================*/
 	.dropbtn{
-		color: #3c3c3c;
-		background-color:pink;
-		padding: 16px;
+		color:#fff9e5;
+		background-color:inherit;
 		font-size: 16px;
 		border:none;
 		cursor: pointer;
+		margin:0;
+		
 	}
 	
 	.dropdown{
 		position:relative;
-		display:inline-block;
+		float:right;
 	}
 	
 	.dropdown-content{
@@ -83,7 +90,7 @@ article {
 
 	.dropdown:hover .dropdown-content {display: block;}
 
-	.dropdown:hover .dropbtn {color: DeepPink;}
+	.dropdown:hover .dropbtn {color: pink;}
 
 /*Navigation Links==================================================*/
 		
@@ -114,6 +121,26 @@ article {
 	.topnav-right {
 		float: right;
 	}
+
+/*List*/
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  }
+
+ul li {
+  float: left;
+}
+
+ul li a {
+  display: block;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
 		
 	#footer{
 		background-color: #3c3c3c;
